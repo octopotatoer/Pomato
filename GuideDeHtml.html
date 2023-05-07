@@ -20,7 +20,8 @@ html{
     <div id="Sect1">
     <center><big><h1>Welcome to the Guide for html</h1></big></center>
     <h5>&lt;center&gt;&lt;big&gt;&lt;h1&gt;Welcome to the Guide for html&lt;/h1&gt;&lt;/big&gt;&lt;/center&gt; //h1 - Biggest sized header availible from 1-6</h5>
-    
+    <label for="toggle-switch">Toggle Code:</label>
+    <input type="checkbox" id="toggle-switch">
     <hr>
     <h5>&lt;hr&gt; //horitonal line</h5>
     <label for="slider">Length for &lt;hr&gt;:</label>
@@ -122,4 +123,21 @@ html{
           const messageElement = document.getElementById("message");
           messageElement.textContent = message;
         }
+      </script>
+      <script>
+        const toggleSwitch = document.getElementById("toggle-switch");
+
+toggleSwitch.addEventListener("change", function() {
+  const elements = document.querySelectorAll("h3, h4, h5");
+  if (this.checked) {
+    elements.forEach((el) => {
+      el.style.display = "block";
+    });
+  } else {
+    elements.forEach((el) => {
+      el.style.display = "none";
+    });
+  }
+});
+
       </script>
