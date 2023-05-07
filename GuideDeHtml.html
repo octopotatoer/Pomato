@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<style>
+h5 {
+  color: white;
+  background-color: rgb(22, 11, 57);
+  border-radius: 7px;
+}
+html{
+        background-color: #6a6e90;
+    }
+</style>
+
+
+<html>
+  <head>
+    <title>Guide de Html</title>
+    <h5>&lt;title&gt;Guide de Html&lt;/title&gt; //sets the website title on the tab</h5>
+  </head>
+  <body>
+    <div id="Sect1">
+    <center><big><h1>Welcome to the Guide for html</h1></big></center>
+    <h5>&lt;center&gt;&lt;big&gt;&lt;h1&gt;Welcome to the Guide for html&lt;/h1&gt;&lt;/big&gt;&lt;/center&gt; //h1 - Biggest sized header availible from 1-6</h5>
+    
+    <hr>
+    <h5>&lt;hr&gt; //horitonal line</h5>
+    <label for="slider">Length for &lt;hr&gt;:</label>
+    <h5>&lt;label for="slider"&gt;Length for &lt;hr&gt;:&lt;/label&gt; //label for slider element</h5>
+    <input type="range" id="slider" name="slider" min="0" max="100" value="50">
+    <h5>&lt;input type="range" id="slider" name="slider" min="0" max="100" value="50"&gt; //slider element</h5>
+    <h5>&lt;hr&gt; //horitonal line</h5>
+
+    <p>Under each element used in this website, the element will be shown</p>
+    <h5>&lt;p&gt;Under each element used in this website, the element will be shown&lt;/p&gt; //p - paragraph</h5>
+    <p>This should give a pretty clear guide on how to use HTML.</p>
+    <h5>&lt;p&gt;This should give a pretty clear guide on how to use HTML.&lt;/p&gt; //p - paragraph</h5>
+
+    <button id="myButton" onclick="changeButtonText()">Click me!</button>
+    <h5>&lt;button id="myButton" onclick="changeButtonText()"&gt;Click me!&lt;/button&gt; //button connected to JS function changeButtonText</h5>
+    <hr>
+    <h5>&lt;hr&gt; //horitonal line</h5>
+    <h3>//And we're done with section 1!</h3>
+    <h5>&lt;h3&gt;//And we're done with section 1!&lt;/h3&gt;</h5>
+    </div>
+    <div id="Sect2">
+        <form>
+          <h5>&lt;form&gt; //make a form</h5>
+
+          <label for="color">Favorite color:</label>
+          <h5>&lt;label for="color"&gt;Favorite color:&lt;/label&gt; //Label for "Favorite color</h5>
+          <input type="text" id="color" name="color">
+          <h5>&lt;input type="text" id="color" name="color"&gt; //box input</h5>
+
+          <input type="submit" value="Submit">
+          <h5>&lt;input type="submit" value="Submit"&gt; //submit button</h5>
+        </form>
+        <h5>&lt;/form&gt; //end of form</h5>
+      
+        <h4 id="message"></h4>
+      </div>
+    <hr>
+    <h5>&lt;hr&gt; //horitonal line</h5>
+    <h3>//And we're done! You can now write websites!</h3>
+    <h5>&lt;h3&gt;//And we're done! You can now write websites!&lt;/h3&gt;</h5>
+  </body>
+</html>
+
+<!--                JS                 -->
+
+<script>
+    const slider = document.getElementById("slider");
+    const hr = document.querySelector("hr");
+
+    slider.addEventListener("input", () => {
+      const width = slider.value + "%";
+      hr.style.width = width;
+    });
+  </script>
+  <script>
+    const buttonPhrases = [
+      "Never gonna give you up",
+      "Never gonna let you down",
+      "Never gonna run around",
+      "And desert you",
+      "Never gonna make you cry",
+      "Never gonna say goodbye",
+      "Never gonna tell a lie",
+      "And hurt you"
+    ];
+    
+    function changeButtonText() {
+      const button = document.getElementById("myButton");
+      const currentText = button.textContent;
+      
+      if (currentText === "Click me!") {
+        button.textContent = buttonPhrases[0];
+      } else {
+        const currentPhraseIndex = buttonPhrases.indexOf(currentText);
+        const nextPhraseIndex = (currentPhraseIndex + 1) % buttonPhrases.length;
+        button.textContent = buttonPhrases[nextPhraseIndex];
+      }
+    }
+    </script>
+    <script>
+        function submitForm(event) {
+          event.preventDefault(); // prevent default form submission behavior
+  
+          // get the values of the form elements
+          const color = document.getElementById("color").value;
+          const fruitElements = document.getElementsByName("fruit");
+          const selectedFruits = [];
+          for (let i = 0; i < fruitElements.length; i++) {
+            if (fruitElements[i].checked) {
+              selectedFruits.push(fruitElements[i].value);
+            }
+          }
+  
+          // generate message based on form submission
+          let message = `Your favorite color is ${color}.`;
+
+  
+          // display message in h4 element
+          const messageElement = document.getElementById("message");
+          messageElement.textContent = message;
+        }
+      </script>
