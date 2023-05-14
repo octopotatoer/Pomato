@@ -69,5 +69,42 @@
 </body>
 </html>
 
-<p>This should give a pretty clear information about those albums that my great grandfather loved.</p> //p - paragraph
-<button id="myButton" onclick="changeButtonText()">Click me!</button> //button connected to JS function changeButtonText
+<p>This should give a pretty clear information about the owner now!</p>
+<h5>&lt;p&gt;This should give a pretty clear inofrmation about the owner now!&lt;/p&gt; //p - paragraph</h5>
+
+<button id="myButton" onclick="changeButtonText()">Click me!</button>
+<h5>&lt;button id="myButton" onclick="changeButtonText()"&gt;Click me!&lt;/button&gt; //button connected to JS function changeButtonText</h5>
+<script>
+    const slider = document.getElementById("slider");
+    const hr = document.querySelector("hr");
+
+    slider.addEventListener("input", () => {
+      const width = slider.value + "%";
+      hr.style.width = width;
+    });
+  </script>
+  <script>
+    const buttonPhrases = [
+      "Never gonna give you up",
+      "Never gonna let you down",
+      "Never gonna run around",
+      "And desert you",
+      "Never gonna make you cry",
+      "Never gonna say goodbye",
+      "Never gonna tell a lie",
+      "And hurt you"
+    ];
+    
+    function changeButtonText() {
+      const button = document.getElementById("myButton");
+      const currentText = button.textContent;
+      
+      if (currentText === "Click me!") {
+        button.textContent = buttonPhrases[0];
+      } else {
+        const currentPhraseIndex = buttonPhrases.indexOf(currentText);
+        const nextPhraseIndex = (currentPhraseIndex + 1) % buttonPhrases.length;
+        button.textContent = buttonPhrases[nextPhraseIndex];
+      }
+    }
+    </script>
